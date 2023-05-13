@@ -1,0 +1,8 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    width: 100%;
+    flex-grow: 1;
+    padding-bottom: 100px;
+}

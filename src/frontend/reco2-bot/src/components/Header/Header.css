@@ -1,0 +1,34 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1.5rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    z-index: 1;
+    box-shadow: 0 0 5px black;
+}
+
+
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 1rem;
+}
+
+.header-connect-button {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212529;
+    background-color: #f8f9fa;
+    border: 1px solid #212529;
+    border-radius: 5px;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+}

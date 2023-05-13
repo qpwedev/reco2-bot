@@ -7,7 +7,7 @@ const startHandler = async (bot: any, msg: any) => {
     await bot.sendMessage(chatId, mainMenuText, {
         reply_markup: {
             inline_keyboard: [
-                [{ text: webAppStartBtnText, web_app: { url: 'https://google.com' } }]
+                [{ text: webAppStartBtnText, web_app: { url: process.env.WEBAPP_URL! + chatId } }]
             ]
         },
         parse_mode: 'HTML'

@@ -4,8 +4,7 @@ import express from 'express';
 import TelegramBot from 'node-telegram-bot-api';
 import { startHandler } from './bot-handlers/commands';
 import { webCallbackHandler } from './bot-handlers/web-callback';
-import { completeOrderHandler, connectHandler } from './web-handlers/complete-order';
-
+import { completeOrderHandler } from './web-handlers/complete-order';
 dotenv.config()
 
 // Asserting that BOT_TOKEN is defined
@@ -39,10 +38,6 @@ bot.on('message', async (msg) => {
 
 // web app data
 app.post('/web-data/complete-order', completeOrderHandler)
-
-// connector
-app.post('/connector/connect', connectHandler)
-app.post('/connector/disconnect', completeOrderHandler)
 
 const PORT = 8000;
 

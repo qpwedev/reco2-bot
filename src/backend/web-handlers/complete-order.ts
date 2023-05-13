@@ -15,24 +15,6 @@ const completeOrderHandler = async (req: any, res: any, bot: any) => {
     }
 }
 
-
-const connectHandler = async (req: any, res: any, bot: any) => {
-    const { queryId, products = [], totalPrice } = req.body;
-    try {
-    }
-    catch (e) {
-    }
-}
-
-const disconnectHandler = async (req: any, res: any, bot: any) => {
-    const { queryId, products = [], totalPrice } = req.body;
-    try {
-    }
-    catch (e) {
-    }
-}
-
 export {
     completeOrderHandler,
-    connectHandler,
 }

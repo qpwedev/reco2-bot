@@ -1,20 +1,28 @@
-import dotenv from 'dotenv'
-dotenv.config()
-
-import TelegramBot from 'node-telegram-bot-api';
-
-import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv'
+import express from 'express';
+import TelegramBot from 'node-telegram-bot-api';
 import { startHandler } from './bot-handlers/commands';
 import { webCallbackHandler } from './bot-handlers/web-callback';
-import { completeOrderHandler } from './web-handlers/complete-order';
+import { completeOrderHandler, connectHandler } from './web-handlers/complete-order';
 
-const token = process.env.BOT_TOKEN!;
-const webAppUrl = 'https://ornate-selkie-c27577.netlify.app';
+dotenv.config()
 
-const bot = new TelegramBot(token, { polling: true });
+// Asserting that BOT_TOKEN is defined
+if (!process.env.BOT_TOKEN || !process.env.WEBAPP_URL) {
+    throw new Error(
+        'env vars must be defined in the .env file'
+    );
+}
+
+const bot = new TelegramBot(
+    process.env.BOT_TOKEN,
+    { polling: true }
+);
+
 const app = express();
 
+// Middleware
 app.use(express.json());
 app.use(cors());
 
@@ -29,8 +37,16 @@ bot.on('message', async (msg) => {
     }
 });
 
-app.post('/web-data', completeOrderHandler)
+// web app data
+app.post('/web-data/complete-order', completeOrderHandler)
+
+// connector
+app.post('/connector/connect', connectHandler)
+app.post('/connector/disconnect', completeOrderHandler)
 
 const PORT = 8000;
 
-app.listen(PORT, () => console.log('server started on PORT ' + PORT))
+app.listen(
+    PORT,
+    () => console.log('server started on PORT ' + PORT)
+)

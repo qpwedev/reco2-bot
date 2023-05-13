@@ -81,3 +81,7 @@ export class Database {
         });
     }
 }
+
+
+const db = new Database('database');
+db.createTables();

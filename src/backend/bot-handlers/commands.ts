@@ -1,12 +1,16 @@
+import { mainMenuText, webAppStartBtnText } from '../message-text/constants'
+
+
 const startHandler = async (bot: any, msg: any) => {
     const chatId = msg.chat.id;
 
-    await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
+    await bot.sendMessage(chatId, mainMenuText, {
         reply_markup: {
             inline_keyboard: [
-                [{ text: 'Сделать заказ', web_app: { url: 'https://google.com' } }]
+                [{ text: webAppStartBtnText, web_app: { url: 'https://google.com' } }]
             ]
-        }
+        },
+        parse_mode: 'HTML'
     })
 }
 

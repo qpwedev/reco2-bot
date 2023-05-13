@@ -1,4 +1,4 @@
-export const webDataHandler = async (req : any, res : any, bot : any) => {
+const completeOrderHandler = async (req: any, res: any, bot: any) => {
     const { queryId, products = [], totalPrice } = req.body;
     try {
         await bot.answerWebAppQuery(queryId, {
@@ -13,4 +13,9 @@ export const webDataHandler = async (req : any, res : any, bot : any) => {
     } catch (e) {
         return res.status(500).json({})
     }
+}
+
+
+export {
+    completeOrderHandler,
 }

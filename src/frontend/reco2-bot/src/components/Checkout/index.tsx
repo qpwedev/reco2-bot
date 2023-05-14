@@ -69,12 +69,12 @@ function Checkout({
       </div>
 
       <div className="checkout-total">
-        {/* <h1 className="checkout-total-title">
+        <h1 className="checkout-total-title">
           Total CO2 Emission: {totalCo2Emission || 0}
         </h1>
         <h1 className="checkout-total-title">
           Total Offset Amount: {totalCo2Emission || 0}
-        </h1> */}
+        </h1>
       </div>
     </div>
   );

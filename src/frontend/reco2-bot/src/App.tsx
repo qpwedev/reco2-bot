@@ -122,7 +122,7 @@ function App() {
         />
         <Route
           path={"checkout"}
-          element={<Checkout cart={cart} navigate={navigate} />}
+          element={<Checkout cart={cart} navigate={navigate} totalCo2Emission={Number(totalCo2Emission)} />}
         />
       </Routes>
       <AnimatePresence>

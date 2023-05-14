@@ -8,6 +8,8 @@ body {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(191.97deg, #162035 0.43%, #18152B 47.44%, #220D2E 98.53%);
 }
 
+
+
 body {
   position: fixed;
 }
@@ -16,7 +18,7 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .app {

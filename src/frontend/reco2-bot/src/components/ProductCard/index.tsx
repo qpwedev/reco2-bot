@@ -27,15 +27,20 @@ function ProductCard({ product, addToCart }: ProductCardProps) {
               alt="co2"
               className="product-card-text-details-co2"
             />
-            <h1 className="product-card-text-details-price">: {product.price}</h1>
+            <h1 className="product-card-text-details-price">
+              : {product.price}
+            </h1>
           </div>
         </div>
-        <button
-          className="product-card-button"
-          onClick={() => addToCart(product)}
-        >
-          +
-        </button>
+
+        <div>
+          <button
+            className="product-card-button"
+            onClick={() => addToCart(product)}
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

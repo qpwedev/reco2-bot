@@ -122,7 +122,7 @@ function App() {
       <AnimatePresence>
         {modalOpen && (
           <Modal
-            text="Hello, world!"
+            text="Connect MetaMask"
             handleConnect={handleConnect}
             handleClose={close}
           />

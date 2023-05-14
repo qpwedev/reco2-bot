@@ -36,8 +36,8 @@
 }
 
 .product-card-image {
-  width: 25px;
-  height: 25px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   flex: 1;
 }

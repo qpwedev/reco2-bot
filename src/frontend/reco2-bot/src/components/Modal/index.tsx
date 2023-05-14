@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 function Backdrop({ children, onClick }: { children: any; onClick: any }) {
   return (
     <motion.div
@@ -33,8 +32,11 @@ function Modal({
         animate="visible"
         exit="exit"
       >
-        <p>{text}</p>
-        <button onClick={handleConnect}>connect</button>
+        <p className="modalTitle">{text}</p>
+
+        <button className="modalConnectBtn" onClick={handleClose}>
+          Connect
+        </button>
         <button onClick={handleClose}>Close</button>
       </motion.div>
     </Backdrop>

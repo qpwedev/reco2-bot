@@ -12,15 +12,20 @@ type ProductListProps = {
   navigate: (route: string) => void;
 };
 
-function ProductList({ cart, handleConnect, addToCart, navigate }: ProductListProps) {
+function ProductList({
+  cart,
+  handleConnect,
+  addToCart,
+  navigate,
+}: ProductListProps) {
   return (
     <div className="product-list">
       {emission_data.activities.map((product: any, index: number) => (
         <ProductCard key={index} product={product} addToCart={addToCart} />
       ))}
-      <button onClick={handleConnect}>Connect</button>
+      {/* <button onClick={handleConnect}>Connect</button>
       <button onClick={() => console.log(cart)}>Cart</button>
-      <button onClick={() => navigate('/checkout')}>Checkout</button>
+      <button onClick={() => navigate('/checkout')}>Checkout</button> */}
     </div>
   );
 }

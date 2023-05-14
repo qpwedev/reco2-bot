@@ -20,7 +20,7 @@ const options = {
 };
 
 function App() {
-  const [totalCo2Emission, setTotalCo2Emission] = useState(0);
+  const [totalCo2Emission, setTotalCo2Emission] = useState('0');
   const navigate = useNavigate();
   const initialState = { accounts: [] };
   const [wallet, setWallet] = useState(initialState);
@@ -34,7 +34,7 @@ function App() {
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
-    setTotalCo2Emission(totalCo2Emission + Number(product.co2Emission));
+    setTotalCo2Emission((Number(totalCo2Emission) + Number(product.co2Emission)).toFixed(2));
   };
 
   const updateWallets = async (accounts: any) => {
@@ -118,7 +118,7 @@ function App() {
             />
           }
         />
-        <Route path={"checkout"} element={<Checkout cart={cart} navigate={navigate} />} />
+        <Route path={"checkout"} element={<Checkout cart={cart} navigate={navigate} setCart={setCart} account={wallet.accounts[0]} setTotalCO2Emission={setTotalCo2Emission} />} />
       </Routes>
       <AnimatePresence>
         {modalOpen && (

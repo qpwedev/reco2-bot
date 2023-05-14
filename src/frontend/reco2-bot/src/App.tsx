@@ -1,19 +1,56 @@
 import { useEffect, useState } from "react";
+import MetaMaskSDK from "@metamask/sdk";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
+import Modal from "./components/Modal";
+
+import { useTelegram } from "./hooks/useTelegram";
 
 import "./App.css";
-import { useTelegram } from "./hooks/useTelegram";
-import { Route, Routes } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { Product } from "./types";
+import Checkout from "./components/Checkout";
+
+const options = {
+  injectProvider: true,
+  forceInjectProvider: true,
+  preferDesktop: false,
+};
 
 function App() {
+  const navigate = useNavigate();
+  const initialState = { accounts: [] };
+  const [wallet, setWallet] = useState(initialState);
   const [modalOpen, setModalOpen] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Product[]>([]);
   const { tg } = useTelegram();
   const close = () => {
     setModalOpen(false);
+  };
+
+  const addToCart = (product: Product) => {
+    setCart([...cart, product]);
+  };
+
+  const updateWallets = async (accounts: any) => {
+    setWallet({ accounts });
+  };
+
+  const handleConnect = async () => {
+    let accounts = [];
+    try {
+      accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    console.log(accounts);
+
+    updateWallets(accounts);
   };
 
   const onMetaMaskConnectClick = () => {
@@ -34,99 +71,65 @@ function App() {
     color: "#f6851b",
   };
 
-  const [wallet, setWallet] = useState(undefined);
+  function onCheckoutButtonClick() {
+    navigate("/checkout");
+  }
 
   useEffect(() => {
     console.log("wallet", wallet);
-    if (wallet === undefined && !modalOpen) {
+    if (wallet.accounts.length === 0 && !modalOpen) {
       tg.MainButton.setParams(connectMetaMaskButtonConfig);
       tg.MainButton.onClick(onMetaMaskConnectClick);
       tg.MainButton.show();
-    } else if (wallet !== undefined && cart.length !== 0) {
+    } else if (wallet.accounts.length > 0 && cart.length > 0) {
       tg.MainButton.offClick(onMetaMaskConnectClick);
+      tg.MainButton.onClick(onCheckoutButtonClick);
       tg.MainButton.setParams(checkoutButtonConfig);
       tg.MainButton.show();
     } else {
       tg.MainButton.offClick(onMetaMaskConnectClick);
+      tg.MainButton.hide();
     }
 
     return () => {
       tg.MainButton.offClick(onMetaMaskConnectClick);
+      tg.MainButton.offClick(onCheckoutButtonClick);
       tg.MainButton.hide();
     };
   }, [wallet, cart, modalOpen]);
+
+  useEffect(() => {
+    new MetaMaskSDK(options);
+  }, []);
 
   return (
     <div className="app">
       <Header />
       <Routes>
-        <Route index element={<ProductList cart={cart} />} />
-        {/* <Route path={"form"} element={<Checkout />} /> */}
+        <Route
+          index
+          element={
+            <ProductList
+              cart={cart}
+              addToCart={addToCart}
+              handleConnect={handleConnect}
+              navigate={navigate}
+            />
+          }
+        />
+        <Route path={"checkout"} element={<Checkout cart={cart} navigate={navigate} />} />
       </Routes>
       <AnimatePresence>
-        {modalOpen && <Modal text="Hello, world!" handleClose={close} />}
+        {modalOpen && (
+          <Modal
+            text="Hello, world!"
+            handleConnect={handleConnect}
+            handleClose={close}
+          />
+        )}
       </AnimatePresence>
     </div>
   );
 }
-
-const Backdrop = ({ children, onClick }: { children: any; onClick: any }) => {
-  return (
-    <motion.div
-      onClick={onClick}
-      className="backdrop"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-const Modal = ({
-  handleClose,
-  text,
-}: {
-  handleClose: () => void;
-  text: string;
-}) => {
-  return (
-    <Backdrop onClick={handleClose}>
-      <motion.div
-        onClick={(e) => e.stopPropagation()}
-        className="modal orange-gradient"
-        variants={dropIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <p>{text}</p>
-        <button onClick={handleClose}>Close</button>
-      </motion.div>
-    </Backdrop>
-  );
-};
-
-const dropIn = {
-  hidden: {
-    y: "100vh",
-    opacity: 0,
-  },
-  visible: {
-    y: "0",
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-  exit: {
-    y: "100vh",
-    opacity: 0,
-    transition: {
-      duration: 0.2,
-    }
-  },
-};
 
 export default App;

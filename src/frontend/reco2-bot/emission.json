@@ -1,0 +1,129 @@
+{
+    "offset_price": 0.8,
+    "activities": [
+        {
+            "name": "Driving a Car",
+            "co2Emission": 2.4
+        },
+        {
+            "name": "Riding a Motorcycle",
+            "co2Emission": 1.6
+        },
+        {
+            "name": "Riding a Bus",
+            "co2Emission": 0.3
+        },
+        {
+            "name": "Riding a Train",
+            "co2Emission": 0.2
+        },
+        {
+            "name": "Flying (Economy Class)",
+            "co2Emission": 0.18
+        },
+        {
+            "name": "Flying (Business Class)",
+            "co2Emission": 0.36
+        },
+        {
+            "name": "Flying (First Class)",
+            "co2Emission": 0.54
+        },
+        {
+            "name": "Using Electricity (General)",
+            "co2Emission": 0.5
+        },
+        {
+            "name": "Using Natural Gas (General)",
+            "co2Emission": 2
+        },
+        {
+            "name": "Using Heating Oil (General)",
+            "co2Emission": 2.6
+        },
+        {
+            "name": "Eating Red Meat",
+            "co2Emission": 2.8
+        },
+        {
+            "name": "Eating Poultry",
+            "co2Emission": 2
+        },
+        {
+            "name": "Eating Dairy",
+            "co2Emission": 1.8
+        },
+        {
+            "name": "Eating Seafood",
+            "co2Emission": 2.2
+        },
+        {
+            "name": "Eating Vegetables",
+            "co2Emission": 0.6
+        },
+        {
+            "name": "Eating Grains",
+            "co2Emission": 0.4
+        },
+        {
+            "name": "Using a Laptop",
+            "co2Emission": 0.02
+        },
+        {
+            "name": "Using a Desktop",
+            "co2Emission": 0.08
+        },
+        {
+            "name": "Watching TV",
+            "co2Emission": 0.03
+        },
+        {
+            "name": "Cooking (Electric)",
+            "co2Emission": 0.04
+        },
+        {
+            "name": "Cooking (Gas)",
+            "co2Emission": 0.06
+        },
+        {
+            "name": "Using a Refrigerator",
+            "co2Emission": 0.02
+        },
+        {
+            "name": "Using Air Conditioning",
+            "co2Emission": 0.3
+        },
+        {
+            "name": "Using Heating (Electric)",
+            "co2Emission": 0.3
+        },
+        {
+            "name": "Using Heating (Gas)",
+            "co2Emission": 0.4
+        },
+        {
+            "name": "Shopping (In-Store)",
+            "co2Emission": 0.2
+        },
+        {
+            "name": "Shopping (Online)",
+            "co2Emission": 0.1
+        },
+        {
+            "name": "Streaming Video",
+            "co2Emission": 0.01
+        },
+        {
+            "name": "Streaming Music",
+            "co2Emission": 0.005
+        },
+        {
+            "name": "Using a Clothes Washer",
+            "co2Emission": 0.03
+        },
+        {
+            "name": "Using a Clothes Dryer",
+            "co2Emission": 0.3
+        }
+    ]
+}

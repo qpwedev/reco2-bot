@@ -1,9 +1,11 @@
+import logo from '../../assets/logo.png';
+
 import './Header.css'
 
 function Header() {
     return (
         <header className='header'>
-            <h1 className='header-title'>ReCO2</h1>
+            <img src={logo} alt='logo'></img>
         </header>
     );
 }

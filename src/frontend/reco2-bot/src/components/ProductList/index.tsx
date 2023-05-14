@@ -4,6 +4,7 @@ import ProductCard from "../ProductCard";
 import { AnimatePresence, motion } from "framer-motion";
 
 import "./ProductList.css";
+import { Product } from "../../types";
 
 const products = [
   { id: 1, name: "Product 1", price: 100 },
@@ -23,15 +24,21 @@ const products = [
 ];
 
 type ProductListProps = {
-  cart: Array<any>;
+  cart: Array<Product>;
+  addToCart: (product: Product) => void;
+  handleConnect: () => void;
+  navigate: (route: string) => void;
 };
 
-function ProductList({ cart }: ProductListProps) {
+function ProductList({ cart, handleConnect, addToCart, navigate }: ProductListProps) {
   return (
     <div className="product-list">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} addToCart={addToCart} />
       ))}
+      <button onClick={handleConnect}>Connect</button>
+      <button onClick={() => console.log(cart)}>Cart</button>
+      <button onClick={() => navigate('/checkout')}>Checkout</button>
     </div>
   );
 }

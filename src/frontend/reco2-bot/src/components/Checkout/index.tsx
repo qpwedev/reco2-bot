@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTelegram } from "../../hooks/useTelegram";
 
 import { Product } from "../../types";
@@ -9,14 +9,11 @@ type CheckoutProps = {
   cart: Array<Product>;
   navigate: (route: string) => void;
   account: string;
+  totalCo2Emission: number;
 };
 
-function Checkout({ cart, navigate, account }: CheckoutProps) {
+function Checkout({ cart, navigate, account, totalCo2Emission }: CheckoutProps) {
   const { tg } = useTelegram();
-
-  const totalCo2Emission = cart.reduce((acc, product) => {
-    return acc + Number(product.co2Emission);
-  }, 0);
 
   useEffect(() => {
     tg.BackButton.onClick(() => {

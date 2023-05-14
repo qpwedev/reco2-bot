@@ -20,6 +20,7 @@ const options = {
 };
 
 function App() {
+  const [totalCo2Emission, setTotalCo2Emission] = useState(0);
   const navigate = useNavigate();
   const initialState = { accounts: [] };
   const [wallet, setWallet] = useState(initialState);
@@ -28,10 +29,12 @@ function App() {
   const { tg } = useTelegram();
   const close = () => {
     setModalOpen(false);
+    updateWallets(["111"]);
   };
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
+    setTotalCo2Emission(totalCo2Emission + Number(product.co2Emission));
   };
 
   const updateWallets = async (accounts: any) => {
@@ -47,8 +50,6 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-
-    console.log(accounts);
 
     updateWallets(accounts);
   };
@@ -67,7 +68,7 @@ function App() {
   };
 
   const checkoutButtonConfig = {
-    text: "Checkout",
+    text: "Checkout" + " (" + totalCo2Emission + " " + "CO2)",
     color: "#f6851b",
   };
 

@@ -137,3 +137,8 @@ table {
 button {
   all: unset;
 }
+
+body {
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+}

@@ -1,0 +1,21 @@
+{
+    "offset_price": 0.8,
+    "activities": [
+        {
+            "name": "Car",
+            "co2Emission": 2.4
+        },
+        {
+            "name": "Burger",
+            "co2Emission": 2.8
+        },
+        {
+            "name": "Coffee",
+            "co2Emission": 0.6
+        },
+        {
+            "name": "Shopping",
+            "co2Emission": 0.2
+        }
+    ]
+}

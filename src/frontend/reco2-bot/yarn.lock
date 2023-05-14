@@ -8916,6 +8916,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-loader@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "json-loader@npm:0.5.7"
+  checksum: c7d054edf7fd5338847f49008df3cdf744f64507584dff3e6d28f500604eedd9130ca1639caa61747b36ab141e7e8db0e86f8514b2244b6d8b0eb634f1154875
+  languageName: node
+  linkType: hard
+
 "json-parse-even-better-errors@npm:^2.3.0, json-parse-even-better-errors@npm:^2.3.1":
   version: 2.3.1
   resolution: "json-parse-even-better-errors@npm:2.3.1"
@@ -9628,6 +9635,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.1
     framer-motion: ^10.12.10
+    json-loader: ^0.5.7
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.11.1

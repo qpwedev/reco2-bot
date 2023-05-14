@@ -37,10 +37,10 @@ function Checkout({ cart, navigate }: CheckoutProps) {
     <div className="checkout">
       <h1>Checkout</h1>
       <div className="checkout-products">
-        {cart.map((product) => (
-          <div key={product.id} className="checkout-product">
+        {cart.map((product, index) => (
+          <div key={index} className="checkout-product">
             <h1 className="checkout-product-title">
-              {product.name} - {product.price}
+              {product.name} - {product.co2Emission}
             </h1>
           </div>
         ))}

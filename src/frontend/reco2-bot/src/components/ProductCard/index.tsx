@@ -1,6 +1,10 @@
 import { Product } from "../../types";
 
 import co2 from "../../assets/CO2.png";
+import Car from "../../assets/Car.png";
+import Coffee from "../../assets/Coffee.png";
+import Burger from "../../assets/Burger.png";
+import Shopping from "../../assets/Shopping.png";
 
 import "./ProductCard.css";
 
@@ -14,7 +18,8 @@ function ProductCard({ product, addToCart }: ProductCardProps) {
   return (
     <div className="product-card">
       <img
-        src="https://picsum.photos/200"
+        // We are sorry and feel bad for this ternary monster :'(
+        src={product.name === "Car" ? Car : product.name === "Coffee" ? Coffee : product.name === "Burger" ? Burger : Shopping}
         alt="product"
         className="product-card-image"
       />
@@ -28,7 +33,7 @@ function ProductCard({ product, addToCart }: ProductCardProps) {
               className="product-card-text-details-co2"
             />
             <h1 className="product-card-text-details-price">
-              : {product.price}
+              : {product.co2Emission}
             </h1>
           </div>
         </div>

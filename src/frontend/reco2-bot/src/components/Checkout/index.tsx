@@ -18,7 +18,17 @@ function Checkout({ cart, navigate }: CheckoutProps) {
       navigate("/");
     });
     tg.BackButton.show();
-  });
+
+    tg.MainButton.onClick(() => {
+      // SEND TRANSACTION
+
+      tg.MainButton.offClick(() => navigate("/"));
+      tg.MainButton.hide();
+      navigate("/");
+    });
+
+    tg.MainButton.show();
+  }, []);
 
   return (
     <div className="checkout">

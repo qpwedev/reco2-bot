@@ -19,9 +19,12 @@ function Checkout({ cart, navigate }: CheckoutProps) {
     });
     tg.BackButton.show();
 
+    tg.MainButton.setParams({
+      text: "Pay",
+    });
+
     tg.MainButton.onClick(() => {
       // SEND TRANSACTION
-
       tg.MainButton.offClick(() => navigate("/"));
       tg.MainButton.hide();
       navigate("/");

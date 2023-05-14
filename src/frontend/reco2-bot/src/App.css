@@ -77,3 +77,26 @@ body {
   font-weight: 800;
   border: none;
 }
+
+
+.checkoutTitle {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f6851a;
+}
+
+.checkout-products {
+  margin-top: 20px;
+}
+
+.checkout-product {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.checkout-total-title {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}

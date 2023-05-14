@@ -4,6 +4,11 @@ ReCO2 is an innovative application that allows you to measure and offset your da
 
 ![Hero](img/hero.png)
 
+
+<p align="center">
+  <img src="preview.gif" alt="Alternate Text"/>
+</p>
+
 ## Features
 
 Activity Logging: Log your daily activities such as commuting, consumption habits, and more.
